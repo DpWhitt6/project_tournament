@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ tournament.name }}{% endblock %}
+
+{% block content %}
+<h2>{{ tournament.name }}</h2>
+<p>{{ tournament.description }}</p>
+<p><strong>Type:</strong> {{ tournament.tournament_type|title }}</p>
+<p><strong>Start:</strong> {{ tournament.start_date }} | <strong>End:</strong> {{ tournament.end_date }}</p>
+
+{% if tournament.tournament_type == 'team' %}
+  <h4>Registered Teams:</h4>
+  <ul>
+    {% for team in tournament.teams.all %}
+      <li>{{ team.name }}</li>
+    {% empty %}
+      <li>No teams registered.</li>
+    {% endfor %}
+  </ul>
+  {% if user.is_authenticated %}
+    <a href="{% url 'register_team' tournament.pk %}" class="btn btn-success">Register Team</a>
+  {% endif %}
+{% else %}
+  <h4>Registered Players:</h4>
+  <ul>
+    {% for registration in tournament.registration_set.all %}
+      <li>{{ registration.user.username }}</li>
+    {% empty %}
+      <li>No players registered.</li>
+    {% endfor %}
+  </ul>
+  {% if user.is_authenticated %}
+    <a href="{% url 'register_individual' tournament.pk %}" class="btn btn-success">Register as Individual</a>
+  {% endif %}
+{% endif %}
+{% endblock %}
