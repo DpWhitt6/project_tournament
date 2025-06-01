@@ -43,7 +43,7 @@ def register_team(request, pk):
             return redirect('tournament_detail', pk=pk)
     else:
         form = TeamRegistrationForm()
-    return render(request, 'tournaments/team_register.html', {'form': form, 'tournament': tournament})
+    return render(request, 'tournaments/register_team.html', {'form': form, 'tournament': tournament})
 
 @login_required
 def register_individual(request, pk):
@@ -56,4 +56,4 @@ def register_individual(request, pk):
             return redirect('tournament_detail', pk=pk)
     else:
         form = IndividualRegistrationForm()
-    return render(request, 'tournaments/individual_register.html', {'form': form, 'tournament': tournament})
+    return render(request, 'tournaments/register_individual.html', {'form': form, 'tournament': tournament})
