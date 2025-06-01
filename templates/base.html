@@ -30,17 +30,17 @@
 
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'tournament_list' %}">Tournaments</a>
+      <a class="navbar-brand" href="{% url 'tournament_list' %}"><h1>Tournaments</h1></a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
           {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'profile_update' %}"><h5>Profile</h5></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><h5>Logout</h5></a></li>
           {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><h5>Login</h5></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"><h5>Register</h5></a></li>
           {% endif %}
         </ul>
       </div>
