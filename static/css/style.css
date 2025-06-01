@@ -1,5 +1,5 @@
 body {
-    background-color: #207a09;
+    background-color: ghostwhite;
 }
 
 .navbar-brand {
@@ -11,9 +11,9 @@ body {
 }
 
 .card-header {
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .btn {
-    border-radius: 0.35rem;
+    border-radius: 0.25rem;
 }
